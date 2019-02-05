@@ -16,6 +16,13 @@ describe('Tour of heroes Dashboard', () => {
     page.navigateToHeroes();
     expect(page.getAllHeroes().count()).toBe(11);
   });
+  
+  it('should search heroes', () => {
+	page.navigateTo();
+    page.searchHeroInInput('Bombasto');
+	expect(page.getAllSearchResults().count()).toBe(1);
+  });
+  
 });
 
 describe('Tour of heroes, heroes page', () => {

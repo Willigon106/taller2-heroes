@@ -16,9 +16,17 @@ export class TourOfHeroesPage {
   getAllHeroes() {
     return element(by.tagName('my-heroes')).all(by.tagName('li'));
   }
+  
+  getAllSearchResults() {
+    return element.all(by.css('.search-result'));
+  }
 
   enterNewHeroInInput(newHero: string) {
     element(by.tagName('input')).sendKeys(newHero);
     element(by.buttonText('Add')).click();
+  }
+  
+  searchHeroInInput(searchHero: string) {
+    element(by.tagName('input')).sendKeys(searchHero);
   }
 }
