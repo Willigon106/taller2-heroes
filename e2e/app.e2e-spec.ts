@@ -55,5 +55,10 @@ describe('Tour of heroes, heroes page', () => {
     page.removeHero('12');
 	expect(page.getAllHeroes().count()).toBe(currentHeroes.then(n => n - 1));
   });
+  
+  it('should go heroe - heroes list', () => {
+    page.goHeroInHeroes('14');
+	expect(page.getDetailHeroes()).toContain('Celeritas');
+  });
 
 });
