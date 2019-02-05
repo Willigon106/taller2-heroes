@@ -38,5 +38,11 @@ describe('Tour of heroes, heroes page', () => {
     page.enterNewHeroInInput('My new Hero');
     expect(page.getAllHeroes().count()).toBe(currentHeroes.then(n => n + 1));
   });
+  
+  it('should delete a hero', () => {
+	const currentHeroes = page.getAllHeroes().count();
+    page.removeHero();
+	expect(page.getAllHeroes().count()).toBe(currentHeroes.then(n => n - 1));
+  });
 
 });

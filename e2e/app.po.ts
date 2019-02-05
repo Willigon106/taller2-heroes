@@ -29,4 +29,9 @@ export class TourOfHeroesPage {
   searchHeroInInput(searchHero: string) {
     element(by.tagName('input')).sendKeys(searchHero);
   }
+  
+  removeHero() {
+	element(by.cssContainingText('.badge', '12')).click();
+	element(by.css('.selected')).element(by.buttonText('x')).click();
+  }
 }
