@@ -28,6 +28,12 @@ describe('Tour of heroes Dashboard', () => {
 	expect(page.getTop4Heroes()).toEqual(['Mr. Nice Motitas', 'Narco', 'Bombasto', 'Celeritas']);
   });
   
+  it('should go heroe dashboard', () => {
+    page.navigateTo();
+    page.goHeroInDash('Zero');
+	expect(page.getDetailHeroes()).toContain('Zero');
+  });
+  
 });
 
 describe('Tour of heroes, heroes page', () => {

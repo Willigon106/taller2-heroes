@@ -4,7 +4,6 @@ export class TourOfHeroesPage {
   navigateTo() {
     return browser.get('/');
   }
-
   getTop4Heroes() {
     return element.all(by.css('.module.hero')).all(by.tagName('h4')).getText();
   }
@@ -15,6 +14,10 @@ export class TourOfHeroesPage {
 
   getAllHeroes() {
     return element(by.tagName('my-heroes')).all(by.tagName('li'));
+  }
+  
+  getDetailHeroes() {
+    return element(by.tagName('hero-detail')).element(by.tagName('h2')).getText();
   }
   
   getAllSearchResults() {
@@ -40,5 +43,10 @@ export class TourOfHeroesPage {
 	element(by.tagName('input')).sendKeys(' ' + newName);
 	element(by.buttonText('Save')).click();
 	browser.sleep(2000);
+  }
+  
+  goHeroInDash(goHero: string) {
+    element(by.tagName('input')).sendKeys(goHero);
+	element(by.css('.search-result')).click();
   }
 }
