@@ -30,8 +30,15 @@ export class TourOfHeroesPage {
     element(by.tagName('input')).sendKeys(searchHero);
   }
   
-  removeHero() {
-	element(by.cssContainingText('.badge', '12')).click();
+  removeHero(rHero: string) {
+	element(by.cssContainingText('.badge', rHero)).click();
 	element(by.css('.selected')).element(by.buttonText('x')).click();
+  }
+  
+  editHero(eHero: string, newName: string) {
+	element(by.cssContainingText('.module.hero', eHero)).click();
+	element(by.tagName('input')).sendKeys(' ' + newName);
+	element(by.buttonText('Save')).click();
+	browser.sleep(2000);
   }
 }

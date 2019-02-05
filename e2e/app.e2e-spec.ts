@@ -23,6 +23,11 @@ describe('Tour of heroes Dashboard', () => {
 	expect(page.getAllSearchResults().count()).toBe(1);
   });
   
+  it('should edit heroes dashboard', () => {
+    page.editHero('Mr. Nice', 'Motitas');
+	expect(page.getTop4Heroes()).toEqual(['Mr. Nice Motitas', 'Narco', 'Bombasto', 'Celeritas']);
+  });
+  
 });
 
 describe('Tour of heroes, heroes page', () => {
@@ -39,9 +44,9 @@ describe('Tour of heroes, heroes page', () => {
     expect(page.getAllHeroes().count()).toBe(currentHeroes.then(n => n + 1));
   });
   
-  it('should delete a hero', () => {
+  it('should remove a hero with id', () => {
 	const currentHeroes = page.getAllHeroes().count();
-    page.removeHero();
+    page.removeHero('12');
 	expect(page.getAllHeroes().count()).toBe(currentHeroes.then(n => n - 1));
   });
 
