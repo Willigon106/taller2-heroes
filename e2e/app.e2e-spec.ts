@@ -34,6 +34,12 @@ describe('Tour of heroes Dashboard', () => {
 	expect(page.getDetailHeroes()).toContain('Zero');
   });
   
+  it('should go heroe - search', () => {
+	page.navigateTo();
+    page.goHeroInSearch('Magneta');
+	expect(page.getDetailHeroes()).toContain('Magneta');
+  });
+  
 });
 
 describe('Tour of heroes, heroes page', () => {
@@ -60,5 +66,5 @@ describe('Tour of heroes, heroes page', () => {
     page.goHeroInHeroes('14');
 	expect(page.getDetailHeroes()).toContain('Celeritas');
   });
-
+  
 });

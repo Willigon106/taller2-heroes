@@ -54,4 +54,10 @@ export class TourOfHeroesPage {
 	element(by.cssContainingText('.badge', goHeroList)).click();
 	element(by.buttonText('View Details')).click();
   }
+  
+  goHeroInSearch(goHeroSearch: string) {
+	element(by.tagName('input')).sendKeys(goHeroSearch);
+	element(by.css('.search-result')).click();
+  }
+  
 }
